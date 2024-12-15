@@ -2,8 +2,6 @@ import { useMutation } from "@apollo/client";
 import { useState } from "react";
 import { ADD_CONTENT } from "../../graphql/mutations/addContent";
 
-const apiKey=import.meta.env.VITE_API_KEY
-const endPointUrl = import.meta.env.VITE_END_POINT_URL
 
 const CreateFeeds = () => {
     const [title, setTitle] = useState('');
@@ -12,6 +10,9 @@ const CreateFeeds = () => {
   
     // GraphQL mutation hook
     const [addContent, { data, loading, error }] = useMutation(ADD_CONTENT);// mutation to create news
+
+    console.log(data)
+    console.log(addContent)
 
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
